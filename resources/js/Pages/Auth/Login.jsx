@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/inertia-react';
 
 const Login = () => {
     return (
-        <Guest title={`Login`}>
+        <>
             <div className="card">
                 <div className="card-header">
                     Login
@@ -16,8 +16,10 @@ const Login = () => {
                     <Link href={`/register`} className="link-dark text-decoration-none">Register</Link>
                 </div>
             </div>
-        </Guest>
+        </>
     );
 };
 
 export default Login;
+
+Login.layout = (page) => <Guest children={page} title={`Login`}/>

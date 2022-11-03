@@ -3,7 +3,7 @@ import App from '../Layout/App';
 
 const Dashboard = () => {
     return (
-        <App title={`Dashboard`}>
+        <>
             <div className="container">
                 <div className="card">
                     <div className="card-header">
@@ -17,8 +17,10 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-        </App>
+        </>
     );
 };
 
 export default Dashboard;
+
+Dashboard.layout = (page) => <App children={page} title={`Dashboard`}/>

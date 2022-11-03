@@ -4,7 +4,7 @@ import App from '../Layout/App';
 const Home = (props) => {
     const username = props.username;
     return (
-        <App title={`Home`}>
+        <>
             <div className="container">
                 <div className="card">
                     <div className="card-header">
@@ -20,8 +20,10 @@ const Home = (props) => {
                     </div>
                 </div>
             </div>
-        </App>
+        </>
     );
 };
 
 export default Home;
+
+Home.layout = (page) => <App children={page} title={`Home`}/>
