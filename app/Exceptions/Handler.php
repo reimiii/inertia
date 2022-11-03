@@ -37,7 +37,7 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * Register the exception handling callbacks for the application.
+     * Register.jsx the exception handling callbacks for the application.
      *
      * @return void
      */
