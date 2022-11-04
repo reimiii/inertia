@@ -6,16 +6,20 @@ import { toast, Toaster } from 'react-hot-toast';
 const App = ({children, title}) => {
     const {flash} = usePage().props;
 
-    flash.type && toast[flash.type](flash.message, {
-        duration: 5000,
-    });
+    useEffect(() => {
+        flash.type && toast[flash.type](flash.message);
+    }, [flash]);
+
+    // flash.type && toast[flash.type](flash.message, {
+    //     duration: 5000,
+    // });
 
     return (
         <div>
             <Head title={title}/>
             <Navbar/>
             <div className="pt-4">
-                <Toaster />
+                <Toaster/>
                 {children}
             </div>
         </div>

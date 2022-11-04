@@ -16,10 +16,10 @@ const Navbar = (props) => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link" href={'/'}>Home</Link>
+                            <Link className="nav-link" href={route('home')}>Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" href={'/dashboard'}>Dashboard</Link>
+                            <Link className="nav-link" href={route('dashboard')}>Dashboard</Link>
                         </li>
 
                     </ul>
@@ -37,7 +37,7 @@ const Navbar = (props) => {
                                         <hr className="dropdown-divider"/>
                                     </li>
                                     <li>
-                                        <Link className="dropdown-item" as={`button`} method={`post`} href={'/logout'}>
+                                        <Link className="dropdown-item" as={`button`} method={`post`} href={route('logout')}>
                                             Logout
                                         </Link>
                                     </li>
@@ -49,10 +49,10 @@ const Navbar = (props) => {
                         :
                         <ul className="navbar-nav mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link" href={'/login'}>Login</Link>
+                                <Link className="nav-link" href={route('login')}>Login</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" href={'/register'}>Register</Link>
+                                <Link className="nav-link" href={route('register')}>Register</Link>
                             </li>
                         </ul>
                     }

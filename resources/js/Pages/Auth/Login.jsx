@@ -22,7 +22,7 @@ const Login = ({errors}) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        post('/login', data);
+        post(route('login'), data);
     }
 
 
@@ -61,7 +61,7 @@ const Login = ({errors}) => {
                     </form>
                 </div>
                 <div className="card-footer">
-                    <Link href={`/register`} className="link-dark text-decoration-none">Register</Link>
+                    Doesn't have account?   <Link href={route('register')} className="link-dark text-decoration-none">Register</Link>
                 </div>
             </div>
         </>

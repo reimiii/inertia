@@ -13,7 +13,7 @@ const Register = () => {
                     Register Form
                 </div>
                 <div className="card-footer">
-                    <Link href={`/login`} className="link-dark text-decoration-none">Login</Link>
+                    <Link href={route('login')} className="link-dark text-decoration-none">Login</Link>
                 </div>
             </div>
         </>
