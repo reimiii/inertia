@@ -6,6 +6,6 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        return inertia('Home', ['username' => 'John Doe']);
+        return inertia('Home');
     }
 }

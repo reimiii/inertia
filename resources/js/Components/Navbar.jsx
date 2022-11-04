@@ -2,9 +2,7 @@ import React from 'react';
 import { Link, usePage } from '@inertiajs/inertia-react';
 
 const Navbar = (props) => {
-    const { auth } = usePage().props;
-
-    // console.log(auth.user.location);
+    const {auth} = usePage().props;
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -33,12 +31,16 @@ const Navbar = (props) => {
                                     {auth.user.username}
                                 </a>
                                 <ul className="dropdown-menu dropdown-menu-end">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Profile</a></li>
+                                    <li><a className="dropdown-item" href="#">Setting</a></li>
                                     <li>
                                         <hr className="dropdown-divider"/>
                                     </li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                    <li>
+                                        <Link className="dropdown-item" as={`button`} method={`post`} href={'/logout'}>
+                                            Logout
+                                        </Link>
+                                    </li>
                                 </ul>
                             </li>
 
