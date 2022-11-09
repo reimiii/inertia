@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         return inertia('Users/Index', [
-            'users' => User::paginate(10),
+            'users' => User::latest()->paginate(10),
         ]);
     }
 
@@ -32,18 +33,25 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $attributes = $request->toArray();
+
+        User::create($attributes);
+
+        return back()->with([
+            'type' => 'success',
+            'message' => 'User created successfully',
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -54,7 +62,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -65,8 +73,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -77,7 +85,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)

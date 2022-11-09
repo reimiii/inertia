@@ -1,13 +1,15 @@
 import React from 'react';
 import App from '../../Layout/App';
 import Pagination from '../../Components/Pagination';
+import CreateUser from '../../Components/CreateUser';
 
 const Index = (props) => {
     const {data: users, links, from} = props.users;
     // console.log(links);
     return (
         <div className={'container'}>
-            <div className="card">
+            <CreateUser/>
+            <div className="card mt-3">
                 <div className="card-header">Users</div>
                 <div className="card-body">
                     <table className={`table`}>
