@@ -24,5 +24,6 @@
         "react-hot-toast": "^2.4.0",
         "resolve-url-loader": "^5.0.0",
         "sass-loader": "^13.1.0"
-    }
+    },
+    "version": "0.0.0"
 }
