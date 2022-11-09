@@ -5,7 +5,7 @@ import { Link, useForm } from '@inertiajs/inertia-react';
 const Login = ({errors}) => {
 
     const {data, setData, post} = useForm({
-        email: 'levi.beier@example.com',
+        email: '',
         password: 'password',
         remember: '',
     })

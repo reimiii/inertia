@@ -18,8 +18,13 @@ const Navbar = (props) => {
                         <li className="nav-item">
                             <Link className="nav-link" href={route('home')}>Home</Link>
                         </li>
+
                         <li className="nav-item">
                             <Link className="nav-link" href={route('dashboard')}>Dashboard</Link>
+                        </li>
+
+                        <li className="nav-item">
+                            <Link className="nav-link" href={route('users.index')}>Users</Link>
                         </li>
 
                     </ul>
