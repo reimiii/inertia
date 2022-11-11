@@ -75,11 +75,18 @@ class UserController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\User $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        $attributes = $request->toArray();
+
+        $user->update($attributes);
+
+        return back()->with([
+            'type' => 'success',
+            'message' => 'User updated successfully',
+        ]);
     }
 
     /**

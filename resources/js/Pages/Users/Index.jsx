@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import App from '../../Layout/App';
 import Pagination from '../../Components/Pagination';
+import Dialog from '../../Components/Dialog';
+import useDialog from '../../Hooks/useDialog';
 import CreateUser from '../../Components/CreateUser';
+import EditUser from '../../Components/EditUser';
 
 const Index = (props) => {
     const {data: users, links, from} = props.users;
-    // console.log(links);
+    const [state, setState] = useState([]);
+    const [addModalButton, theClose, modalAdd] = useDialog();
+    const [editModalButton, theCloseEdit, modalEdit] = useDialog();
+    const openEditDialog = (user) => {
+        setState(user);
+        editModalButton();
+    }
     return (
         <div className={'container'}>
-            <CreateUser/>
+
+            <Dialog trigger={modalAdd} title={`Create new user`}>
+                <CreateUser close={theClose}/>
+            </Dialog>
+
+            <Dialog trigger={modalEdit} title={`Edit user: ${state.name}`}>
+                <EditUser model={state} close={theCloseEdit}/>
+            </Dialog>
+
+            <button onClick={addModalButton} className="btn btn-primary">
+                Create
+            </button>
+
             <div className="card mt-3">
                 <div className="card-header">Users</div>
                 <div className="card-body">
@@ -55,9 +76,11 @@ const Index = (props) => {
                                         </button>
                                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                             <li>
-                                                <a className="dropdown-item" href="#">
+                                                <button className="dropdown-item" onClick={
+                                                    () => openEditDialog(user)
+                                                }>
                                                     Edit
-                                                </a>
+                                                </button>
                                             </li>
                                             <li>
                                                 <a className="dropdown-item" href="#">

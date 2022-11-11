@@ -10,11 +10,11 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => ['required', 'string', 'max:25', 'unique:users', 'alpha_num'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'username' => ['required', 'string', 'max:25', 'unique:users,username,' . optional($this->user)->id, 'alpha_num'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . optional($this->user)->id],
             'name' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
-            'password' => ['required', Password::default()],
+            'password' => ['nullable', Password::default()],
         ];
     }
 
